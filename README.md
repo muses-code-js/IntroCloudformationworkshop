@@ -64,3 +64,41 @@ You will need to add this at the top of the file
 
 I will show final code block in workshop, you can test and validate the bucket with a index.html file and jpg. Once that is uploaded to the bucket you can access the static website via the static website hosting endpoint
 
+5. The final block of code will look like this:
+
+```
+AWSTemplateFormatVersion: 2010-09-09
+Description: "Creating an s3 bucket to host static content"
+
+Parameters:
+  S3BucketName: 
+    Type: String
+    Description: "Name of S3Bucket"
+    
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: error.html
+        
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      PolicyDocument:
+        Id: MyPolicy
+        Version: 2012-10-17
+        Statement:
+          - Sid: PublicReadForGetBucketObjects
+            Effect: Allow
+            Principal: '*'
+            Action: 's3:GetObject'
+            Resource: !Join 
+              - ''
+              - - 'arn:aws:s3:::'
+                - !Ref S3Bucket
+                - /*
+      Bucket: !Ref S3Bucket
+```
