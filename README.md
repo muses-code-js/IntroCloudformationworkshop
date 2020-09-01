@@ -62,8 +62,6 @@ You will need to add this at the top of the file
       Bucket: !Ref S3Bucket
 ```
 
-I will show final code block in workshop, you can test and validate the bucket with a index.html file and jpg. Once that is uploaded to the bucket you can access the static website via the static website hosting endpoint
-
 5. The final block of code will look like this:
 
 ```
@@ -102,3 +100,5 @@ Resources:
                 - /*
       Bucket: !Ref S3Bucket
 ```
+
+6. To upload the file ensure you save the file and go to the aws console cloudformation service and follow the prompts to upload template. Once stack is GREEN and has passed you can check to validate to see if your bucket is in the console, if so, you can add your index.html file and hit the endpoint to access your webpage. 
