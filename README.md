@@ -101,4 +101,4 @@ Resources:
       Bucket: !Ref S3Bucket
 ```
 
-6. To upload the file ensure you save the file and go to the aws console cloudformation service and follow the prompts to upload template. Once stack is GREEN and has passed you can check to validate to see if your bucket is in the console, if so, you can add your index.html file and hit the endpoint to access your webpage. 
+6. To upload the file ensure you save the file and go to the cloudformation service within the aws console and follow the prompts to upload template. Once stack is GREEN and has passed you can check to validate to see if your bucket is in the console, if validated, you can add your index.html file and hit the endpoint to access your webpage. 
